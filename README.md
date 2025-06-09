@@ -1,14 +1,14 @@
-NVNT's SDEX2M2 (MicroSD Express to M.2) Adapter Project
+**NVNT's SDEX2M2 (MicroSD Express to M.2) Adapter Project**
 
 For creating an adapter to allow M.2 2230 SSD (NVME) drives to be used on the Nintendo Switch 2 utilizing the MicroSD Express Port.
 
-🧠 How is this possible?
+**🧠 How is this possible?**
 
 This is possible as the Nintendo Switch 2's MicroSD Express slot uses the SD Express 7.1 standard which supports a true PCIe Gen3 x1 interface, and utilizes the NVMe protocol for communication.
 
 This adapter simply maps PCIe x1 from the Switch 2’s microSD slot to an M.2 2230 SSD (NVME). The adapter does not do any translation — it relies on the Switch 2’s host controller to handle everything.
 
-🎯 Goals
+**🎯 Goals**
 
 Create Schematic: Necessary for PCB Design.
 
@@ -18,11 +18,11 @@ Create BOM File: Necessary for production.
 
 Offload VDD: As some drives may use more power, offloading VDD (Voltage/Power) to an external power source may be easier.
 
-📦 Status
+**📦 Status**
 
 🚧 Work in progress. We are currently in development of the Gerber, Drill and other files necessary.
 
-⚠️ Warnings:
+**⚠️ Warnings:**
 
 - Use at your own risk! We are not liable for any damage caused to your M.2 NVMe Drive, Nintendo Switch 2 or other devices.
   
