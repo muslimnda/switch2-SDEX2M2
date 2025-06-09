@@ -1,0 +1,49 @@
+{
+  "MicroSD_Express_to_M2_NVMe_Pinout": [
+    {
+      "MicroSD_Express_Pin": "10",
+      "Signal": "REFCLK+",
+      "M.2_NVMe_Pin": "B10"
+    },
+    {
+      "MicroSD_Express_Pin": "11",
+      "Signal": "REFCLK−",
+      "M.2_NVMe_Pin": "B11"
+    },
+    {
+      "MicroSD_Express_Pin": "12",
+      "Signal": "PERST#",
+      "M.2_NVMe_Pin": "A11"
+    },
+    {
+      "MicroSD_Express_Pin": "14",
+      "Signal": "TX+",
+      "M.2_NVMe_Pin": "B23"
+    },
+    {
+      "MicroSD_Express_Pin": "15",
+      "Signal": "TX−",
+      "M.2_NVMe_Pin": "B24"
+    },
+    {
+      "MicroSD_Express_Pin": "17",
+      "Signal": "RX+",
+      "M.2_NVMe_Pin": "A21"
+    },
+    {
+      "MicroSD_Express_Pin": "18",
+      "Signal": "RX−",
+      "M.2_NVMe_Pin": "A22"
+    },
+    {
+      "MicroSD_Express_Pin": "4 (Row 1)",
+      "Signal": "3.3V VDD",
+      "M.2_NVMe_Pin": "B2/B3/B4"
+    },
+    {
+      "MicroSD_Express_Pins": ["9", "13", "16", "19"],
+      "Signal": "GND",
+      "M.2_NVMe_Pins": ["A1", "A4", "A12", "B5"]
+    }
+  ]
+}

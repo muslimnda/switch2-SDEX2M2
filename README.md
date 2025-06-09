@@ -5,68 +5,75 @@
 ---
 
 ## 📚 Table of Contents
-
-- [🧠 How is this possible?](#-how-is-this-possible)
-- [🎯 Goals](#-goals)
-- [📦 Status](#-status)
-- [⚠️ Warnings](#️-warnings)
-- [📋 Bill of Materials (BOM)](#-bill-of-materials-bom)
-- [📌 PINOUT & LEGEND](#-pinout--legend)
-  - [MicroSD Express ➝ M.2 NVMe Mapping](#microsd-express--m2-nvme-mapping)
-  - [M.2 NVMe Pin Definitions](#m2-nvme-pin-definitions)
-  - [MicroSD Express Pin Definitions](#microsd-express-pin-definitions)
+- Introduction
+  - [Goals](#goals)
+  - [Status](#status)
+  - [Warnings](#warnings)
+- Assets & Hardware Info
+  - [Bill of Materials (BOM)](#bill-of-materials-bom)
+  - [PINOUT & LEGEND](#pinout--legend)
+    - [MicroSD Express ➝ M.2 NVMe Mapping](#microsd-express--m2-nvme-mapping)
+    - [M.2 NVMe Pin Definitions](#m2-nvme-pin-definitions)
+    - [MicroSD Express Pin Definitions](#microsd-express-pin-definitions)
+  - [Wiring Schematic](#wiring-schematic)
+  - [MicroSD Express Dummy Card](#wiring-schematic)
 
 ---
 
-## 🧠 How is this possible?
+## How is this possible?
 
 This is possible because the Nintendo Switch 2's MicroSD Express slot supports the SD Express 7.1 standard, which exposes a **true PCIe Gen3 x1 interface** and utilizes the **NVMe protocol** for communication.
 
-This adapter simply maps PCIe x1 from the Switch 2’s MicroSD Express slot to a standard M.2 2230 NVMe SSD.  
-No protocol translation is required — the Switch 2 host controller handles everything.
+This adapter simply maps PCIe x1 from the Switch 2’s MicroSD Express slot to a standard M.2 2230 NVMe SSD.  No protocol translation is required as the Switch 2 host controller handles everything.
 
 ---
 
-## 🎯 Goals
+## Goals
 
+- ✅ Create Pinout & Pin Definitions
+- ✅ Create Footprints for MicroSD Express
 - ✅ Create Schematic for PCB layout
-- ✅ Create routed PCB with Gerber/Drill files
+- ✅ Create Dummy MicroSD Express Card
+- 🔲 Create Dummy MicroSD Express card with breakout for prototyping
+- 🔲 Create routed PCB with Gerber/Drill files
 - ✅ Create BOM for fabrication and sourcing
-- ✅ (Optional) Offload VDD externally for higher-power drives
+- 🔲 (Optional) Offload VDD externally for higher-power drives
+- 🔲 Produce & Test
 
 ---
 
-## 📦 Status
+## Status
 
-🚧 Work in progress.  
-We are actively developing the PCB layout, manufacturing files, and 3D models.
+Work in progress.  
+We are actively developing the PCB layout, and testing.
+
+There is still the possibility that there are power-related issues (ie: power draw of M.2 drives is more than the Switch 2 can push out), but a basic level of power filtering has been added to hopefully help a connection be established.
 
 ---
 
-## ⚠️ Warnings
+## Warnings
 
 - Use at your own risk. We are **not liable** for any damage to your drive, Switch 2, or other devices.
 - Only use **low-voltage, low-power M.2 2230 NVMe drives**.
 - **Do not use this in legacy MicroSD slots** (e.g., original Nintendo Switch).
-- This project is for **accessibility/educational use only**.  
-  No commercial or piracy use permitted.
+- This project is for **accessibility/educational use only**.  No commercial or piracy use permitted.
 
 ---
 
-## 📋 Bill of Materials (BOM)
+## Bill of Materials (BOM)
 
 | Reference | Quantity | Description                             | Part Number        | Manufacturer   |
 |-----------|----------|-----------------------------------------|--------------------|----------------|
-| J1        | 1        | MicroSD Express Edge Connector (TF 7.1) | Custom-19PIN-MSDX  | Generic/Custom |
 | J2        | 1        | M.2 Socket (M-Key, 2230)                | 114020             | Amphenol       |
-| C1        | 1        | Bypass Capacitor 0.1uF 0603             | GRM188R71C104KA01D | Murata         |
-| C2        | 1        | Bypass Capacitor 1uF 0603               | CL10A105KB8NNNC    | Samsung        |
-| FB1       | 1        | Ferrite Bead 220Ω@100MHz 0603           | BLM18PG221SN1D     | Murata         |
-| PCB       | 1        | 4-Layer Impedance Controlled PCB        | N/A                | Fabricated     |
+| FB1       | 1        | Ferrite Bead 220Ω@100MHz 0603           | BLM18PG221SN1D     | Murata/OEM     |
+| PCB       | 1        | 4-Layer PCB        | N/A                | Fabricated         | *              |
+|*          | 1        | 10kΩ – 100kΩ Pull Up Resistor (Optional) | N/A               | *              |
+
+The optional resistor is for the PERST# lane, may help with state when idle. Resistors could 
 
 ---
 
-## 📌 PINOUT & LEGEND
+## PINOUT & LEGEND
 
 ### MicroSD Express ➝ M.2 NVMe Mapping
 
@@ -108,10 +115,29 @@ We are actively developing the PCB layout, manufacturing files, and 3D models.
 | 10   | REFCLK+  | PCIe Reference Clock +     |
 | 11   | REFCLK−  | PCIe Reference Clock −     |
 | 12   | PERST#   | PCIe Reset                 |
-| 13   | GND      | Ground                     |
 | 14   | TX+      | PCIe TX (host ➝ device) +  |
 | 15   | TX−      | PCIe TX (host ➝ device) −  |
-| 16   | GND      | Ground                     |
 | 17   | RX+      | PCIe RX (device ➝ host) +  |
 | 18   | RX−      | PCIe RX (device ➝ host) −  |
 | 19   | GND      | Ground                     |
+
+---
+
+### Wiring Schematic
+
+![image](https://github.com/user-attachments/assets/24d717a2-7385-4293-a098-90bb4e63f5af)
+
+Still a WIP. May not need the bead.
+
+---
+
+### MicroSD Express Dummy Card
+
+As there is no footprint, dummy card or other files which could be useful to this project and other hardware hackers (at the time of writing), I have gone ahead and created them.
+
+Please note, the Dummy Card is for reference only as no public information exists for the pin pitch. It requires tweaking. Will be updated asap.
+
+![image](https://github.com/user-attachments/assets/22540149-7b47-4f09-8c33-7f98d65de4fb)
+
+
+---
