@@ -69,7 +69,7 @@ There is still the possibility that there are power-related issues (ie: power dr
 | PCB       | 1        | 4-Layer PCB        | N/A                | Fabricated         | *              |
 |*          | 1        | 10kΩ – 100kΩ Pull Up Resistor (Optional) | N/A               | *              |
 
-The optional resistor is for the PERST# lane, may help with state when idle. Resistors could 
+The optional resistor is for the PERST# lane, may help with state when idle. Not sure if needed until prototyping commences.
 
 ---
 
