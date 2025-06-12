@@ -1,49 +1,62 @@
-{
-  "MicroSD_Express_to_M2_NVMe_Pinout": [
-    {
-      "MicroSD_Express_Pin": "10",
-      "Signal": "REFCLK+",
-      "M.2_NVMe_Pin": "B10"
-    },
-    {
-      "MicroSD_Express_Pin": "11",
-      "Signal": "REFCLK−",
-      "M.2_NVMe_Pin": "B11"
-    },
-    {
-      "MicroSD_Express_Pin": "12",
-      "Signal": "PERST#",
-      "M.2_NVMe_Pin": "A11"
-    },
-    {
-      "MicroSD_Express_Pin": "14",
-      "Signal": "TX+",
-      "M.2_NVMe_Pin": "B23"
-    },
-    {
-      "MicroSD_Express_Pin": "15",
-      "Signal": "TX−",
-      "M.2_NVMe_Pin": "B24"
-    },
-    {
-      "MicroSD_Express_Pin": "17",
-      "Signal": "RX+",
-      "M.2_NVMe_Pin": "A21"
-    },
-    {
-      "MicroSD_Express_Pin": "18",
-      "Signal": "RX−",
-      "M.2_NVMe_Pin": "A22"
-    },
-    {
-      "MicroSD_Express_Pin": "4 (Row 1)",
-      "Signal": "3.3V VDD",
-      "M.2_NVMe_Pin": "B2/B3/B4"
-    },
-    {
-      "MicroSD_Express_Pins": ["9", "13", "16", "19"],
-      "Signal": "GND",
-      "M.2_NVMe_Pins": ["A1", "A4", "A12", "B5"]
-    }
-  ]
-}
+[
+  {
+    "microSD_Express_Pin": 7,
+    "PCIe_Function": "REFCLK+",
+    "M2_MKey_Pin": "B10",
+    "M2_Function": "REFCLK+"
+  },
+  {
+    "microSD_Express_Pin": 8,
+    "PCIe_Function": "REFCLK−",
+    "M2_MKey_Pin": "B11",
+    "M2_Function": "REFCLK−"
+  },
+  {
+    "microSD_Express_Pin": 2,
+    "PCIe_Function": "PERST#",
+    "M2_MKey_Pin": "A11",
+    "M2_Function": "PERST#"
+  },
+  {
+    "microSD_Express_Pin": 1,
+    "PCIe_Function": "CLKREQ#",
+    "M2_MKey_Pin": "B8",
+    "M2_Function": "CLKREQ#"
+  },
+  {
+    "microSD_Express_Pin": 11,
+    "PCIe_Function": "TX+",
+    "M2_MKey_Pin": "B23",
+    "M2_Function": "PCIe TX+"
+  },
+  {
+    "microSD_Express_Pin": 12,
+    "PCIe_Function": "TX−",
+    "M2_MKey_Pin": "B24",
+    "M2_Function": "PCIe TX−"
+  },
+  {
+    "microSD_Express_Pin": 14,
+    "PCIe_Function": "RX-",
+    "M2_MKey_Pin": "A21",
+    "M2_Function": "PCIe RX+"
+  },
+  {
+    "microSD_Express_Pin": 15,
+    "PCIe_Function": "RX+",
+    "M2_MKey_Pin": "A22",
+    "M2_Function": "PCIe RX−"
+  },
+  {
+    "microSD_Express_Pin": 4,
+    "PCIe_Function": "3.3V VDD",
+    "M2_MKey_Pin": "B2, B3, B4",
+    "M2_Function": "3.3V Power"
+  },
+  {
+    "microSD_Express_Pin": "6, 10, 13, 16",
+    "PCIe_Function": "GND",
+    "M2_MKey_Pin": "A1, A4, etc.",
+    "M2_Function": "Ground"
+  }
+]
