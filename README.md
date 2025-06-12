@@ -32,10 +32,10 @@ Currently, a MicroSD Express breakbout is being developed to start this process.
 
 ## Goals
 
-- ✅ Create Pinout & Pin Definitions
+- ✅ Create Pinout & Pin Definitions (UPDATED!)
 - ✅ Create Footprints for MicroSD Express
 - ✅ Create Schematic for PCB layout
-- ✅ Create Dummy MicroSD Express Card
+- ✅ Create Dummy MicroSD Express Card V2
 - 🔲 Create Dummy MicroSD Express card with breakout for prototyping
 - 🔲 Create routed PCB with Gerber/Drill files
 - ✅ Create BOM for fabrication and sourcing
@@ -79,17 +79,19 @@ The optional resistor is for the PERST# lane, may help with state when idle. Not
 
 ### MicroSD Express ➝ M.2 NVMe Mapping
 
-| MicroSD Express    | Signal     | M.2 NVMe Slot |
-|--------------------|------------|---------------|
-| 10                 | REFCLK+    | B10           |
-| 11                 | REFCLK−    | B11           |
-| 12                 | PERST#     | A11           |
-| 14                 | TX+        | B23           |
-| 15                 | TX−        | B24           |
-| 17                 | RX+        | A21           |
-| 18                 | RX−        | A22           |
-| Row 1 Pin 4        | VDD (3.3V) | B2/B3/B4      |
-| Pins 9, 13, 16, 19 | GND        | A1/A4/etc.    |
+| microSD Express Pin  | PCIe Function | M.2 M-Key Pin(s) | M.2 Function         |
+| -------------------- | ------------- | ---------------- | -------------------- |
+| 7 (Row 1)            | REFCLK+       | B10              | REFCLK+              |
+| 8 (Row 1)            | REFCLK−       | B11              | REFCLK−              |
+| 2 (Row 1)            | PERST#        | A11              | PERST#               |
+| 1 (Row 1)            | CLKREQ#       | B8               | CLKREQ#              |
+| 11 (Row 2)           | TX+           | B23              | PCIe TX+             |
+| 12 (Row 2)           | TX−           | B24              | PCIe TX−             |
+| 14 (Row 2)           | RX-           | A21              | PCIe RX+             |
+| 15 (Row 2)           | RX+           | A22              | PCIe RX−             |
+| 4 (Row 1)            | 3.3V VDD      | B2, B3, B4       | 3.3V Power           |
+| 6, 10, 13, 16     | GND           | A1, A4, etc.     | Ground               |
+
 
 ---
 
@@ -109,37 +111,49 @@ The optional resistor is for the PERST# lane, may help with state when idle. Not
 
 ---
 
-### MicroSD Express Pin Definitions
+### MicroSD Express Pin Definitions (in SD Mode &* PCIe Mode)
 
-| Pin  | Name     | Function                   |
-|------|----------|----------------------------|
-| 9    | GND      | Ground                     |
-| 10   | REFCLK+  | PCIe Reference Clock +     |
-| 11   | REFCLK−  | PCIe Reference Clock −     |
-| 12   | PERST#   | PCIe Reset                 |
-| 14   | TX+      | PCIe TX (host ➝ device) +  |
-| 15   | TX−      | PCIe TX (host ➝ device) −  |
-| 17   | RX+      | PCIe RX (device ➝ host) +  |
-| 18   | RX−      | PCIe RX (device ➝ host) −  |
-| 19   | GND      | Ground                     |
+| Pin | Row 1 Contact | SD Mode Function | PCIe Mode Function               |
+| --- | ------------- | -------------------- | ---------------------------- |
+| 1   | DAT2          | Data Line 2          | CLKREQ# (Power Mgmt)         |
+| 2   | DAT3 / CD     | Data Line 3 / CD     | PERST# (Reset)               |
+| 3   | CMD           | Command Line         | CMD (unused in PCIe mode)    |
+| 4   | VDD           | 3.3V Power           | 3.3V Power                   |
+| 5   | CLK           | Clock Line           | CLK (unused in PCIe mode)    |
+| 6   | VSS           | Ground               | Ground                       |
+| 7   | DAT0          | Data Line 0          | REFCLK+ (PCIe Ref Clock)     |
+| 8   | DAT1          | Data Line 1          | REFCLK− (PCIe Ref Clock)     |
+
+
+| Pin | Row 2 Contact   | PCIe Function                 |
+| --- | --------------- | ----------------------------- |
+| 9   | 1V8             | 1.8 Volts                     |
+| 10  | VSS2            | Ground for isolation          |
+| 11  | TX+             | PCIe TX+ (Transmit)           |
+| 12  | TX-             | PCIe TX+ (Transmit)           |
+| 13  | VSS3            | Ground for isolation          |
+| 14  | RX-             | PCIe RX- (Receive)            |
+| 15  | RX+             | PCIe RX+ (Receive)            |
+| 16  | VSS4            | Ground for isolation          |
+| 17  | 1V2             | 1.2 Volts                     |
+
+Please note: Row 2 is only operational in PCIe Mode. Row 2 is based on M1cha's (https://github.com/M1cha/sdexpress_pcbs) schematic.
 
 ---
 
 ### Wiring Schematic
 
-![image](https://github.com/user-attachments/assets/24d717a2-7385-4293-a098-90bb4e63f5af)
+![alt text](image-2.png)
 
-Still a WIP. May not need the bead.
+Still a WIP. Some discrepencies exist.
 
 ---
 
 ### MicroSD Express Dummy Card
 
-As there is no footprint, dummy card or other files which could be useful to this project and other hardware hackers (at the time of writing), I have gone ahead and created them.
+A dummy card has been created (thanks to M1cha!), for reference. Files have been attached.
 
-Please note, the Dummy Card is for reference only as no public information exists for the pin pitch. It requires tweaking. Will be updated asap.
-
-![image](https://github.com/user-attachments/assets/22540149-7b47-4f09-8c33-7f98d65de4fb)
+![alt text](45be96056c1b502acda375f99eb7bca.png)
 
 
 ---

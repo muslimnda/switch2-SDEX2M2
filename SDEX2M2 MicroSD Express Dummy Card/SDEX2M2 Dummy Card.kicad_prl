@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 7,
     "active_layer_preset": "All Layers",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -58,11 +58,15 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "microsd_express_dummy_card.kicad_prl",
+    "filename": "SDEX2M2 Dummy Card.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
     "col_hidden": [
+      false,
+      false,
+      false,
+      false,
       false,
       false,
       false,
@@ -84,7 +88,11 @@
       6,
       7,
       8,
-      9
+      9,
+      10,
+      11,
+      12,
+      13
     ],
     "col_widths": [
       162,
@@ -95,6 +103,10 @@
       91,
       91,
       71,
+      91,
+      91,
+      91,
+      91,
       91,
       91
     ],

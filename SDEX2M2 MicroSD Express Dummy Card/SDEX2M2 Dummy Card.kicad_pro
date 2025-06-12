@@ -37,90 +37,89 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 0.0,
+          "height": 2.45,
+          "width": 1.2
         },
-        "silk_line_width": 0.12,
+        "silk_line_width": 0.1,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
-        "silk_text_thickness": 0.15,
+        "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.508
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [],
       "drc_exclusions": [],
       "meta": {
-        "filename": "board_design_settings.json",
         "version": 2
       },
       "rule_severities": {
         "annular_width": "error",
         "clearance": "error",
-        "connection_width": "warning",
+        "connection_width": "error",
         "copper_edge_clearance": "error",
-        "copper_sliver": "warning",
+        "copper_sliver": "error",
         "courtyards_overlap": "error",
         "creepage": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
         "drill_out_of_range": "error",
-        "duplicate_footprints": "warning",
-        "extra_footprint": "warning",
+        "duplicate_footprints": "error",
+        "extra_footprint": "error",
         "footprint": "error",
-        "footprint_filters_mismatch": "ignore",
-        "footprint_symbol_mismatch": "warning",
-        "footprint_type_mismatch": "ignore",
+        "footprint_filters_mismatch": "error",
+        "footprint_symbol_mismatch": "error",
+        "footprint_type_mismatch": "warning",
         "hole_clearance": "error",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
         "invalid_outline": "error",
-        "isolated_copper": "warning",
+        "isolated_copper": "error",
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
         "length_out_of_range": "error",
-        "lib_footprint_issues": "warning",
-        "lib_footprint_mismatch": "warning",
+        "lib_footprint_issues": "error",
+        "lib_footprint_mismatch": "error",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
-        "mirrored_text_on_front_layer": "warning",
-        "missing_courtyard": "ignore",
-        "missing_footprint": "warning",
-        "net_conflict": "warning",
-        "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "mirrored_text_on_front_layer": "error",
+        "missing_courtyard": "error",
+        "missing_footprint": "error",
+        "net_conflict": "error",
+        "nonmirrored_text_on_back_layer": "error",
+        "npth_inside_courtyard": "error",
         "padstack": "warning",
-        "pth_inside_courtyard": "ignore",
+        "pth_inside_courtyard": "error",
         "shorting_items": "error",
-        "silk_edge_clearance": "warning",
-        "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_edge_clearance": "error",
+        "silk_over_copper": "error",
+        "silk_overlap": "error",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
-        "text_height": "warning",
+        "text_height": "error",
         "text_on_edge_cuts": "error",
-        "text_thickness": "warning",
+        "text_thickness": "error",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
         "track_angle": "error",
-        "track_dangling": "warning",
+        "track_dangling": "error",
         "track_segment_length": "error",
         "track_width": "error",
         "tracks_crossing": "error",
         "unconnected_items": "error",
         "unresolved_variable": "error",
-        "via_dangling": "warning",
+        "via_dangling": "error",
         "zones_intersect": "error"
       },
       "rules": {
         "max_error": 0.005,
         "min_clearance": 0.0,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.025,
+        "min_copper_edge_clearance": 0.2,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -131,10 +130,10 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
-        "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.4,
-        "solder_mask_to_copper_clearance": 0.0,
+        "min_track_width": 0.0,
+        "min_via_annular_width": 0.075,
+        "min_via_diameter": 0.45,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -448,17 +447,19 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "m1cha"
+    ]
   },
   "meta": {
-    "filename": "SDEX2M2 MicroSD Express Dummy Card.kicad_pro",
+    "filename": "SDEX2M2 Dummy Card.kicad_pro",
     "version": 3
   },
   "net_settings": {
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -467,12 +468,26 @@
         "microvia_drill": 0.1,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": -1,
+        "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.25,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
+        "track_width": 0.2,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.15,
+        "diff_pair_gap": 0.2032,
+        "diff_pair_width": 0.205232,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PCIe",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "via_diameter": 0.45,
+        "via_drill": 0.3
       }
     ],
     "meta": {
@@ -482,36 +497,28 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad1)"
+        "netclass": "PCIe",
+        "pattern": "DATx{slash}REFCLK+"
       },
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad2)"
+        "netclass": "PCIe",
+        "pattern": "DATx{slash}REFCLK-"
       },
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad3)"
+        "netclass": "PCIe",
+        "pattern": "PCIe_TX+"
       },
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad4)"
+        "netclass": "PCIe",
+        "pattern": "PCIe_TX-"
       },
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad5)"
+        "netclass": "PCIe",
+        "pattern": "PCIe_RX-"
       },
       {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad6)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad7)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(J1-Pad8)"
+        "netclass": "PCIe",
+        "pattern": "PCIe_RX+"
       }
     ]
   },
@@ -615,14 +622,14 @@
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
-      "label_size_ratio": 0.25,
+      "label_size_ratio": 0.375,
       "operating_point_overlay_i_precision": 3,
       "operating_point_overlay_i_range": "~A",
       "operating_point_overlay_v_precision": 3,
       "operating_point_overlay_v_range": "~V",
       "overbar_offset_ratio": 1.23,
-      "pin_symbol_size": 0.0,
-      "text_offset_ratio": 0.08
+      "pin_symbol_size": 25.0,
+      "text_offset_ratio": 0.15
     },
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
@@ -644,7 +651,7 @@
   },
   "sheets": [
     [
-      "0cd5c5d9-cbcb-4c3d-bc9c-6ede25e34017",
+      "ab7da24e-4f2e-4e37-a5b2-9f2f0bc499d7",
       "Root"
     ]
   ],
